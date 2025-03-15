@@ -5,7 +5,7 @@ create database uvgride;
 select current_database();
 
 -- select para verificar la correcta creación.
-select * from ...;
+select * from seguro_vehiculo;
 
 -- Creación de las entidades.
 create table usuario (
@@ -154,3 +154,22 @@ operacion varchar(255) not null,
 tabla_afectada varchar(255) not null,
 id_registro_afectado int not null
 );
+
+-- version 1.1
+create table seguro_vehiculo (
+id_seguro serial primary key,
+id_vehiculo int not null,
+proveedor varchar(255) not null,
+fecha_inicio timestamp not null,
+fecha_vencimiento timestamp not null,
+cobertura text not null,
+foreign key (id_vehiculo) references vehiculo(id_vehiculo)
+);
+
+alter table usuario add column activo boolean not null default true;
+
+alter table viaje_maestro 
+alter column hora_inicio drop not null,
+alter column hora_finalizacion drop not null;
+
+alter table public.vehiculo add constraint vehiculo_conductor_fk foreign key (id_conductor) references public.conductor(id_conductor);
