@@ -2,6 +2,8 @@
 select current_database();
 
 -- Ingreso de datos ficticios.
+
+-- Inserción de datos en la tabla usuario
 INSERT INTO usuario (nombre, apellido, correo_institucional, contrasenia, telefono, tipo_usuario) VALUES
 ('Juan', 'Perez', 'juan.perez@uvg.edu.gt', '1234', '555-1234', 'Estudiante'),
 ('Maria', 'Lopez', 'maria.lopez@uvg.edu.gt', 'abcd', '555-5678', 'Docente'),
@@ -10,8 +12,14 @@ INSERT INTO usuario (nombre, apellido, correo_institucional, contrasenia, telefo
 ('Pedro', 'Santos', 'pedro.santos@uvg.edu.gt', 'qwerty', '555-1111', 'Estudiante'),
 ('Sofia', 'Mendez', 'sofia.mendez@uvg.edu.gt', 'pass1', '555-2222', 'Docente'),
 ('Luis', 'Ramirez', 'luis.ramirez@uvg.edu.gt', 'pass2', '555-3333', 'Colaborador'),
+('Elena', 'Fernandez', 'elena.fernandez@uvg.edu.gt', 'pass3', '555-4444', 'Estudiante'),
+('Roberto', 'Vasquez', 'roberto.vasquez@uvg.edu.gt', 'pass4', '555-5555', 'Estudiante'),
+('Gabriela', 'Torres', 'gabriela.torres@uvg.edu.gt', 'pass5', '555-6666', 'Docente'),
+('Javier', 'Salazar', 'javier.salazar@uvg.edu.gt', 'abc123', '555-7777', 'Estudiante'),
+('Laura', 'Hernandez', 'laura.hernandez@uvg.edu.gt', '12345', '555-8888', 'Docente'),
+('Martín', 'Jimenez', 'martin.jimenez@uvg.edu.gt', 'xyz987', '555-9999', 'Colaborador');
 
-
+-- Inserción de datos en la tabla vehiculo
 INSERT INTO vehiculo (id_conductor, marca, modelo, placa, color, capacidad_pasajeros) VALUES
 (1, 'Toyota', 'Corolla', 'P123ABC', 'Rojo', 4),
 (2, 'Honda', 'Civic', 'P234DEF', 'Negro', 4),
@@ -22,8 +30,12 @@ INSERT INTO vehiculo (id_conductor, marca, modelo, placa, color, capacidad_pasaj
 (7, 'Mazda', 'CX-5', 'P789STU', 'Rojo', 5),
 (8, 'Kia', 'Sportage', 'P890VWX', 'Negro', 5),
 (9, 'Volkswagen', 'Jetta', 'P901YZA', 'Blanco', 4),
-(10, 'Subaru', 'Impreza', 'P012BCD', 'Azul', 4);
+(10, 'Subaru', 'Impreza', 'P012BCD', 'Azul', 4),
+(1, 'Toyota', 'Yaris', 'P123XYZ', 'Verde', 4),
+(2, 'Chevrolet', 'Malibu', 'P234UVW', 'Gris', 5),
+(3, 'Ford', 'Mustang', 'P345RST', 'Rojo', 2);
 
+-- Inserción de datos en la tabla conductor
 INSERT INTO conductor (id_usuario, licencia_conducir, estado_disponibilidad, id_vehiculo) VALUES
 (31, '12345678', 'Disponible', 31),
 (32, '23456789', 'En viaje', 32),
@@ -34,8 +46,12 @@ INSERT INTO conductor (id_usuario, licencia_conducir, estado_disponibilidad, id_
 (37, '78901234', 'Disponible', 37),
 (38, '89012345', 'Disponible', 38),
 (39, '90123456', 'En viaje', 39),
-(40, '01234567', 'Disponible', 40);
+(40, '01234567', 'Disponible', 40)
+(41, '23456789', 'Disponible', 41),
+(42, '34567890', 'En viaje', 42),
+(43, '45678901', 'Inactivo', 43);
 
+-- Inserción de datos en la tabla viaje_maestro
 INSERT INTO viaje_maestro (id_conductor, origen, destino, hora_solicitud, hora_inicio, hora_finalizacion, estado_viaje, costo_total) VALUES
 (51, 'UVG', 'Zona 10', '2024-03-01 08:00:00', '2024-03-01 08:10:00', '2024-03-01 08:30:00', 'Finalizado', 50.00),
 (52, 'UVG', 'Zona 1', '2024-03-02 09:00:00', '2024-03-02 09:15:00', '2024-03-02 09:40:00', 'Finalizado', 40.00),
@@ -46,8 +62,12 @@ INSERT INTO viaje_maestro (id_conductor, origen, destino, hora_solicitud, hora_i
 (57, 'UVG', 'Zona 3', '2024-03-07 14:00:00', NULL, NULL, 'Pendiente', 45.00),
 (58, 'UVG', 'Zona 2', '2024-03-08 15:00:00', '2024-03-08 15:05:00', '2024-03-08 15:30:00', 'Finalizado', 55.00),
 (59, 'UVG', 'Zona 9', '2024-03-09 16:00:00', '2024-03-09 16:20:00', '2024-03-09 16:50:00', 'Finalizado', 65.00),
-(60, 'UVG', 'Zona 6', '2024-03-10 17:00:00', NULL, NULL, 'Pendiente', 75.00);
+(60, 'UVG', 'Zona 6', '2024-03-10 17:00:00', NULL, NULL, 'Pendiente', 75.00),
+(61, 'Zona 3', 'Zona 12', '2024-03-11 10:00:00', '2024-03-11 10:10:00', '2024-03-11 10:45:00', 'Finalizado', 45.00),
+(62, 'Zona 8', 'Zona 13', '2024-03-12 11:00:00', '2024-03-12 11:15:00', '2024-03-12 11:40:00', 'En curso', 50.00),
+(63, 'Zona 4', 'Zona 14', '2024-03-13 12:00:00', '2024-03-13 12:10:00', NULL, 'Pendiente', 55.00);
 
+-- Inserción de datos en la tabla viaje_detalle
 INSERT INTO viaje_detalle (id_viaje_maestro, id_pasajero, estado_pasajero) VALUES
 (1, 35, 'Confirmado'),
 (1, 36, 'Cancelado'),
@@ -58,8 +78,13 @@ INSERT INTO viaje_detalle (id_viaje_maestro, id_pasajero, estado_pasajero) VALUE
 (5, 31, 'Confirmado'),
 (6, 32, 'Confirmado'),
 (7, 33, 'Pendiente'),
-(8, 34, 'Confirmado');
+(8, 34, 'Confirmado'),
+(11, 41, 'Confirmado'),
+(12, 42, 'Cancelado'),
+(13, 43, 'Pendiente');
 
+
+-- Inserción de datos en la tabla calificacion_maestro
 INSERT INTO calificacion_maestro (id_viaje, id_usuario, puntuacion) VALUES
 (1, 35, 5),
 (2, 37, 4),
@@ -70,8 +95,12 @@ INSERT INTO calificacion_maestro (id_viaje, id_usuario, puntuacion) VALUES
 (7, 33, 3),
 (8, 34, 5),
 (9, 35, 4),
-(10, 36, 3);
+(10, 36, 3),
+(11, 41, 5),
+(12, 42, 3),
+(13, 43, 4);
 
+-- Inserción de datos en la tabla calificacion_detalle
 INSERT INTO calificacion_detalle (id_calificacion_maestro, criterio, puntuacion) VALUES
 (11, 'Puntualidad', 5),
 (11, 'Conducción', 4),
@@ -82,8 +111,12 @@ INSERT INTO calificacion_detalle (id_calificacion_maestro, criterio, puntuacion)
 (16, 'Conducción', 4),
 (17, 'Limpieza del vehículo', 3),
 (18, 'Puntualidad', 5),
-(19, 'Amabilidad', 4);
+(19, 'Amabilidad', 4),
+(11, 'Puntualidad', 5),
+(12, 'Conducción', 3),
+(13, 'Limpieza del vehículo', 4);
 
+-- Inserción de datos en la tabla tarifa_maestro
 INSERT INTO tarifa_maestro (tipo_servicio, costo_base) VALUES
 ('Viaje Individual', 25.00),
 ('Viaje Compartido', 15.00),
@@ -94,8 +127,12 @@ INSERT INTO tarifa_maestro (tipo_servicio, costo_base) VALUES
 ('Normal', 25.00),
 ('VIP', 60.00),
 ('Tarifa Estudiantil', 10.00),
-('Tarifa Corporativa', 40.00);
+('Tarifa Corporativa', 40.00),
+('Economía', 20.00),
+('Premium', 50.00),
+('Económico', 30.00);
 
+-- Inserción de datos en la tabla tarifa_detalle
 INSERT INTO tarifa_detalle (id_tarifa_maestro, tipo_usuario, costo_por_km, costo_por_minuto) VALUES
 (1, 'Estudiante', 2.00, 1.00),
 (2, 'Docente', 2.50, 1.50),
@@ -106,8 +143,12 @@ INSERT INTO tarifa_detalle (id_tarifa_maestro, tipo_usuario, costo_por_km, costo
 (7, 'Estudiante', 2.10, 1.20),
 (8, 'Docente', 2.80, 1.70),
 (9, 'Colaborador', 3.10, 1.90),
-(10, 'Estudiante', 2.00, 1.30);
+(10, 'Estudiante', 2.00, 1.30),
+(11, 'Estudiante', 1.80, 1.00),
+(12, 'Docente', 2.50, 1.50),
+(13, 'Colaborador', 3.00, 1.75);
 
+-- Inserción de datos en la tabla metodo_pago
 INSERT INTO metodo_pago (id_usuario, tipo_pago, detalle_pago, activo) VALUES
 (31, 'Tarjeta de crédito', 'Visa ****1234', true),
 (32, 'PayPal', 'maria.paypal@email.com', true),
@@ -118,8 +159,12 @@ INSERT INTO metodo_pago (id_usuario, tipo_pago, detalle_pago, activo) VALUES
 (37, 'Efectivo', 'Pago en persona', true),
 (38, 'Tarjeta de débito', 'Visa ****3456', true),
 (39, 'Tarjeta de crédito', 'MasterCard ****7890', false),
-(40, 'Efectivo', 'Pago en persona', true);
+(40, 'Efectivo', 'Pago en persona', true),
+(41, 'Tarjeta de crédito', 'Visa ****5678', true),
+(42, 'PayPal', 'laura.paypal@email.com', true),
+(43, 'Efectivo', 'Pago en persona', true);
 
+-- Inserción de datos en la tabla transaccion
 INSERT INTO transaccion (id_usuario, id_viaje, id_metodo_pago, monto, estado_pago, fecha_pago) VALUES
 (31, 1, 11, 25.00, 'Completado', '2024-03-01 08:30:00'),
 (32, 2, 12, 15.00, 'Completado', '2024-03-02 09:40:00'),
@@ -130,8 +175,12 @@ INSERT INTO transaccion (id_usuario, id_viaje, id_metodo_pago, monto, estado_pag
 (37, 7, 17, 25.00, 'Pendiente', '2024-03-02 09:40:00'),
 (38, 8, 18, 60.00, 'Completado', '2024-03-08 15:30:00'),
 (39, 9, 19, 10.00, 'Completado', '2024-03-09 16:50:00'),
-(40, 10, 20, 40.00, 'Pendiente', '2024-03-02 09:40:00');
+(40, 10, 20, 40.00, 'Pendiente', '2024-03-02 09:40:00'),
+(41, 11, 11, 20.00, 'Completado', '2024-03-11 10:30:00'),
+(42, 12, 12, 50.00, 'Pendiente', '2024-03-12 11:45:00'),
+(43, 13, 13, 30.00, 'Completado', '2024-03-13 12:30:00');
 
+-- Inserción de datos en la tabla historial_viajes
 INSERT INTO historial_viajes (id_usuario, id_viaje, fecha, estado) VALUES
 (31, 1, '2024-03-01 08:30:00', 'Finalizado'),
 (32, 2, '2024-03-02 09:40:00', 'Finalizado'),
@@ -142,8 +191,12 @@ INSERT INTO historial_viajes (id_usuario, id_viaje, fecha, estado) VALUES
 (37, 7, '2024-03-07 14:45:00', 'Pendiente'),
 (38, 8, '2024-03-08 15:30:00', 'Finalizado'),
 (39, 9, '2024-03-09 16:50:00', 'Finalizado'),
-(40, 10, '2024-03-10 17:40:00', 'Pendiente');
+(40, 10, '2024-03-10 17:40:00', 'Pendiente'),
+(41, 11, '2024-03-11 10:30:00', 'Finalizado'),
+(42, 12, '2024-03-12 11:45:00', 'Pendiente'),
+(43, 13, '2024-03-13 12:30:00', 'Finalizado');
 
+-- Inserción de datos en la tabla reporte
 INSERT INTO reporte (id_viaje, id_usuario, tipo_problema, descripcion, estado_reporte, fecha_reporte) VALUES
 (1, 35, 'Conductor irresponsable', 'El conductor manejaba a alta velocidad.', 'Resuelto', '2024-03-01 09:00:00'),
 (2, 37, 'Retraso', 'El viaje se retrasó más de 30 minutos.', 'Pendiente', '2024-03-02 10:00:00'),
@@ -154,8 +207,12 @@ INSERT INTO reporte (id_viaje, id_usuario, tipo_problema, descripcion, estado_re
 (7, 33, 'Problema con el cobro', 'El monto cobrado no coincide con la tarifa esperada.', 'Resuelto', '2024-03-07 15:00:00'),
 (8, 34, 'Vehículo en mal estado', 'El auto presentaba fallas mecánicas.', 'Pendiente', '2024-03-08 16:00:00'),
 (9, 35, 'Sin aire acondicionado', 'El auto no tenía aire acondicionado funcionando.', 'Resuelto', '2024-03-09 17:00:00'),
-(10, 36, 'Conductor distraído', 'El conductor estaba usando el celular mientras manejaba.', 'Pendiente', '2024-03-10 18:00:00');
+(10, 36, 'Conductor distraído', 'El conductor estaba usando el celular mientras manejaba.', 'Pendiente', '2024-03-10 18:00:00'),
+(11, 41, 'Retraso', 'El conductor llegó tarde.', 'Pendiente', '2024-03-11 10:45:00'),
+(12, 42, 'Conductor grosero', 'El conductor fue maleducado.', 'Resuelto', '2024-03-12 12:00:00'),
+(13, 43, 'Auto desordenado', 'El vehículo no estaba limpio.', 'Pendiente', '2024-03-13 12:15:00');
 
+-- Inserción de datos en la tabla notificacion
 INSERT INTO notificacion (id_usuario, mensaje, tipo, estado, fecha_envio) VALUES
 (31, 'Tu viaje ha sido confirmado.', 'Viaje', 'Leído', '2024-03-01 07:30:00'),
 (32, 'Tu conductor ha llegado al punto de encuentro.', 'Viaje', 'Leído', '2024-03-02 08:45:00'),
@@ -166,8 +223,12 @@ INSERT INTO notificacion (id_usuario, mensaje, tipo, estado, fecha_envio) VALUES
 (37, 'Has sido reportado por un pasajero.', 'Alerta', 'Leído', '2024-03-07 13:45:00'),
 (38, 'Tu viaje está en curso.', 'Viaje', 'No leído', '2024-03-08 14:20:00'),
 (39, 'Has recibido una oferta de descuento en tu próximo viaje.', 'Promoción', 'No leído', '2024-03-09 15:10:00'),
-(40, 'Tu reporte ha sido revisado y resuelto.', 'Soporte', 'Leído', '2024-03-10 16:00:00');
+(40, 'Tu reporte ha sido revisado y resuelto.', 'Soporte', 'Leído', '2024-03-10 16:00:00'),
+(41, 'Tu viaje ha sido confirmado.', 'Viaje', 'Leído', '2024-03-11 10:00:00'),
+(42, 'Tu conductor ha llegado al punto de encuentro.', 'Viaje', 'No leído', '2024-03-12 11:30:00'),
+(43, 'Has recibido una nueva calificación de tu viaje.', 'Calificación', 'Leído', '2024-03-13 12:00:00');
 
+-- Inserción de datos en la tabla seguro_vehiculo
 INSERT INTO seguro_vehiculo (id_vehiculo, proveedor, fecha_inicio, fecha_vencimiento, cobertura) VALUES
 (31, 'Seguros G&T', '2024-01-01', '2025-01-01', 'Cobertura total'),
 (32, 'Seguros El Roble', '2024-02-01', '2025-02-01', 'Daños a terceros'),
@@ -178,4 +239,7 @@ INSERT INTO seguro_vehiculo (id_vehiculo, proveedor, fecha_inicio, fecha_vencimi
 (37, 'Seguros El Roble', '2024-07-01', '2025-07-01', 'Daños a terceros'),
 (38, 'Mapfre', '2024-08-01', '2025-08-01', 'Cobertura limitada'),
 (39, 'Aseguradora Nacional', '2024-09-01', '2025-09-01', 'Cobertura total'),
-(40, 'Seguros Universales', '2024-10-01', '2025-10-01', 'Daños a terceros');
+(40, 'Seguros Universales', '2024-10-01', '2025-10-01', 'Daños a terceros'),
+(41, 'Seguros El Roble', '2024-02-01', '2025-02-01', 'Daños a terceros'),
+(42, 'Mapfre', '2024-03-01', '2025-03-01', 'Cobertura total'),
+(43, 'Aseguradora Nacional', '2024-04-01', '2025-04-01', 'Cobertura limitada');
