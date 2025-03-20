@@ -10,9 +10,7 @@ INSERT INTO usuario (nombre, apellido, correo_institucional, contrasenia, telefo
 ('Pedro', 'Santos', 'pedro.santos@uvg.edu.gt', 'qwerty', '555-1111', 'Estudiante'),
 ('Sofia', 'Mendez', 'sofia.mendez@uvg.edu.gt', 'pass1', '555-2222', 'Docente'),
 ('Luis', 'Ramirez', 'luis.ramirez@uvg.edu.gt', 'pass2', '555-3333', 'Colaborador'),
-('Elena', 'Fernandez', 'elena.fernandez@uvg.edu.gt', 'pass3', '555-4444', 'Estudiante'),
-('Roberto', 'Vasquez', 'roberto.vasquez@uvg.edu.gt', 'pass4', '555-5555', 'Estudiante'),
-('Gabriela', 'Torres', 'gabriela.torres@uvg.edu.gt', 'pass5', '555-6666', 'Docente');
+
 
 INSERT INTO vehiculo (id_conductor, marca, modelo, placa, color, capacidad_pasajeros) VALUES
 (1, 'Toyota', 'Corolla', 'P123ABC', 'Rojo', 4),
