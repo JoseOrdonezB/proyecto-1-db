@@ -6,7 +6,6 @@ Jose Pablo Ordoñez Barrios – 231329
 
 Marcos Rodrigo Ambrocio Larios - 231140
 
-Adrián Ricardo González Muralles - 23152
 
 📚 Curso: Bases de datos
 📌 Sección: 30 y 20
